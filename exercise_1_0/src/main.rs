@@ -10,25 +10,37 @@ impl Time {
 }
 
 fn in_hours(t: Time) -> u64 {
-    unimplemented!();
+    t.ms / 1000 / 60 / 60
 }
 
 fn greater(t1: Time, t2: Time) -> Time {
-    unimplemented!();
+    Time { ms: std::cmp::max(t1.ms, t2.ms) }
 }
 
 // implement without cloning
 fn greatest(v: Vec<Time>) -> Time {
-    unimplemented!();
+    let mut max_ms = v[0].ms;
+    for t in v {
+        if max_ms < t.ms {
+            max_ms = t.ms;
+        }
+    }
+    Time { ms : max_ms }
 }
 
 // references
 fn time_diff_in_ms(t1: &Time, t2: &Time) -> u64 {
-    unimplemented!();
+    if t1.ms > t2.ms { t1.ms - t2.ms } else { t2.ms - t1.ms }
 }
 
 fn greatest_ref(v: &Vec<Time>) -> &Time {
-    unimplemented!();
+    let mut max_t = &v[0];
+    for t in v {
+        if max_t.ms < t.ms {
+            max_t = t;
+        }
+    }
+    max_t
 }
 
 fn main() {}
