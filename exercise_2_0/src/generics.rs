@@ -1,8 +1,3 @@
-fn example() {
-    let mut shopping_list: Vec<&str> = Vec::new();
-    shopping_list.push("milk");
-}
-
 struct Wrapper<T> {
     value: T
 }
