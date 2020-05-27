@@ -1,19 +1,11 @@
-// Time to implement some traits!
-//
-// Your task is to implement the trait
-// `AppendBar' for the type `String'.
-//
-// The trait AppendBar has only one function,
-// which appends "Bar" to any object
-// implementing this trait.
-
-// I AM NOT DONE
 trait AppendBar {
     fn append_bar(self) -> Self;
 }
 
 impl AppendBar for String {
-    //Add your code here
+    fn append_bar(self) -> Self {
+        self + "Bar"
+    }
 }
 
 fn example() {
@@ -22,24 +14,13 @@ fn example() {
     println!("s: {}", s);
 }
 
-//
-// Your task is to implement the trait
-// `AppendBar' for a vector of strings.
-//
-// To implement this trait, consider for
-// a moment what it means to 'append "Bar"'
-// to a vector of strings.
-//
-// No boiler plate code this time,
-// you can do this!
-
-// I AM NOT DONE
-
-trait AppendBar {
-    fn append_bar(self) -> Self;
+impl AppendBar for Vec<String> {
+    fn append_bar(self) -> Self {
+        let mut re = self.clone();
+        re.push(String::from("Bar"));
+        re
+    }
 }
-
-//TODO: Add your code here
 
 #[cfg(test)]
 mod tests {
